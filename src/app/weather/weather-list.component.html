@@ -1,0 +1,223 @@
+<div class="kgz">
+  <h1>Weather of Kyrgyzstan</h1>
+</div>
+<div class="container">
+  <div class="bishkek">
+    <h2>Bishkek</h2>
+    <div class="current_weather">
+      <h4 class="right_now">Now</h4>
+      <div class="current_date_time">{{ currentTime | date:'EEEE, MMMM d, y, h:mm a'}}</div>
+      <ng-container *ngFor="let weather of currentWeatherBish">
+        <div class="image_text_block">
+          <div class="image" *ngIf="weather.text === 'Rain' || weather.text === 'Showers'">
+            <img src="../../assets/img/rain&showers.jpg">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Scattered Showers'"><img
+            src="../../assets/img/scattered-showers.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+          <div class="image" *ngIf="weather.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+          <div class="text" *ngIf="weather.text">{{weather?.text}}</div>
+        </div>
+        <div class="humidity" *ngIf="weather.humidity">Humidity: {{weather?.humidity}}%</div>
+        <div class="visibility" *ngIf="weather.visibility">Visibility: {{weather?.visibility}} km</div>
+        <div class="temp" *ngIf="weather.temp">
+          <!--here I'm converting degree from fahrenheit to celsius-->
+          <div class="temp-degree">{{(weather?.temp - 32) * 5/9 | floor}}</div>
+          <div class="degree">&#x2103;</div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="daily_forecasts">
+      <ng-container *ngFor="let item of bishkekForecasts">
+        <div class="forecast">
+          <div class="day">{{item.day}}</div>
+          <div class="date">{{item.date}}</div>
+          <div class="block">
+            <div class="image" *ngIf="item.text === 'Rain' || item.text === 'Showers'">
+              <img src="../../assets/img/rain&showers.jpg">
+            </div>
+            <div class="image" *ngIf="item.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Scattered Showers'">
+              <img src="../../assets/img/scattered-showers.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+            <div class="image" *ngIf="item.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+            <div class="text">{{item.text}}</div>
+          </div>
+          <div class="day_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="noon">Noon: {{(item.high - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+          <div class="night_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="night">Night: {{(item.low - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="osh">
+    <h2>Osh</h2>
+    <div class="current_weather">
+      <h4 class="right_now">Now</h4>
+      <div class="current_date_time">{{ currentTime | date:'EEEE, MMMM d, y, h:mm a'}}</div>
+      <ng-container *ngFor="let weather of currentWeatherOsh">
+        <div class="image_text_block">
+          <div class="image" *ngIf="weather.text === 'Rain' || weather.text === 'Showers'">
+            <img src="../../assets/img/rain&showers.jpg">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Scattered Showers'"><img
+            src="../../assets/img/scattered-showers.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+          <div class="image" *ngIf="weather.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+          <div class="text" *ngIf="weather.text">{{weather?.text}}</div>
+        </div>
+        <div class="humidity" *ngIf="weather.humidity">Humidity: {{weather?.humidity}}%</div>
+        <div class="visibility" *ngIf="weather.visibility">Visibility: {{weather?.visibility}} km</div>
+        <div class="temp" *ngIf="weather.temp">
+          <!--here I'm converting degree from fahrenheit to celsius-->
+          <div class="temp-degree">{{(weather?.temp - 32) * 5/9 | floor}}</div>
+          <div class="degree">&#x2103;</div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="daily_forecasts">
+      <ng-container *ngFor="let item of oshForecasts">
+        <div class="forecast">
+          <div class="day">{{item.day}}</div>
+          <div class="date">{{item.date}}</div>
+          <div class="block">
+            <div class="image" *ngIf="item.text === 'Rain' || item.text === 'Showers'">
+              <img src="../../assets/img/rain&showers.jpg">
+            </div>
+            <div class="image" *ngIf="item.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Scattered Showers'">
+              <img src="../../assets/img/scattered-showers.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+            <div class="image" *ngIf="item.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+            <div class="text">{{item.text}}</div>
+          </div>
+          <div class="day_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="noon">Noon: {{(item.high - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+          <div class="night_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="night">Night: {{(item.low - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="batken">
+    <h2>Batken</h2>
+    <div class="current_weather">
+      <h4 class="right_now">Now</h4>
+      <div class="current_date_time">{{ currentTime | date:'EEEE, MMMM d, y, h:mm a'}}</div>
+      <ng-container *ngFor="let weather of currentWeatherBatken">
+        <div class="image_text_block">
+          <div class="image" *ngIf="weather.text === 'Rain' || weather.text === 'Showers'">
+            <img src="../../assets/img/rain&showers.jpg">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Scattered Showers'"><img
+            src="../../assets/img/scattered-showers.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+          <div class="image" *ngIf="weather.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+          </div>
+          <div class="image" *ngIf="weather.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+          <div class="image" *ngIf="weather.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+          <div class="text" *ngIf="weather.text">{{weather?.text}}</div>
+        </div>
+        <div class="humidity" *ngIf="weather.humidity">Humidity: {{weather?.humidity}}%</div>
+        <div class="visibility" *ngIf="weather.visibility">Visibility: {{weather?.visibility}} km</div>
+        <div class="temp" *ngIf="weather.temp">
+          <!--here I'm converting degree from fahrenheit to celsius-->
+          <div class="temp-degree">{{(weather?.temp - 32) * 5/9 | floor}}</div>
+          <div class="degree">&#x2103;</div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="daily_forecasts">
+      <ng-container *ngFor="let item of batkenForecasts">
+        <div class="forecast">
+          <div class="day">{{item.day}}</div>
+          <div class="date">{{item.date}}</div>
+          <div class="block">
+            <div class="image" *ngIf="item.text === 'Rain' || item.text === 'Showers'">
+              <img src="../../assets/img/rain&showers.jpg">
+            </div>
+            <div class="image" *ngIf="item.text === 'Cloudy'"><img src="../../assets/img/cloudy.png"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Cloudy'"><img src="../../assets/img/mostly-cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Scattered Showers'">
+              <img src="../../assets/img/scattered-showers.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Sunny'"><img src="../../assets/img/sunny.png"></div>
+            <div class="image" *ngIf="item.text === 'Partly Cloudy'"><img src="../../assets/img/partly_cloudy.png">
+            </div>
+            <div class="image" *ngIf="item.text === 'Rain And Snow'"><img src="../../assets/img/rain&snow.jpg"></div>
+            <div class="image" *ngIf="item.text === 'Mostly Sunny'"><img src="../../assets/img/mostly-sunny.jpg"></div>
+            <div class="text">{{item.text}}</div>
+          </div>
+          <div class="day_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="noon">Noon: {{(item.high - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+          <div class="night_degree">
+            <div class="canvas_degree">
+              <!--here I'm converting degree from fahrenheit to celsius-->
+              <div class="night">Night: {{(item.low - 32) * 5/9 | floor}}</div>
+              <span>&#x2103;</span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
