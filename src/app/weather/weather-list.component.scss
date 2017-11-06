@@ -1,0 +1,129 @@
+.current_weather {
+  background: #fff;
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 15px;
+
+  .image img {
+    width: 40px;
+    height: 30px;
+  }
+
+  .image_text_block{
+    display: inline-flex;
+    padding-bottom: 10px;
+
+    .text {
+      padding: 6px 0 0 15px;
+      font-size: 18px;
+    }
+  }
+
+
+  .visibility {
+    padding-bottom: 50px;
+  }
+
+  .temp {
+    position: absolute;
+    bottom: 0;
+    font-size: 40px;
+    display: inline-flex;
+    left: 45%;
+
+    .degree {
+      font-size: 12px;
+      padding-top: 10px;
+    }
+  }
+
+  .current_date_time{
+    padding-bottom: 10px;
+  }
+
+  .humidity{
+    padding-bottom: 10px;
+  }
+
+  .right_now{
+    margin: 0;
+    padding: 10px 0 10px 0;
+  }
+}
+
+.daily_forecasts {
+  .forecast {
+    background: rgb(246, 246, 246);
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 15px;
+
+    .block {
+      display: inline-flex;
+      padding-bottom: 10px;
+
+      .text {
+        padding: 6px 0 0 10px;
+        font-size: 18px;
+      }
+    }
+
+    .image img {
+      width: 40px;
+      height: 30px;
+      border-radius: 12px;
+    }
+
+    .day{
+      padding: 10px 0 10px 0;
+    }
+
+    .date{
+      padding-bottom: 10px;
+    }
+
+    .day_degree, .night_degree{
+      padding-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .canvas_degree{
+      display: inline-flex;
+
+      span{
+        font-size: 8px;
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  background: url('../../assets/img/sky-cloud.jpg') no-repeat;
+  background-size: cover;
+
+  .bishkek, .osh, .batken{
+    margin: 0 20px 0 20px;
+    width: 25%;
+  }
+}
+
+h2{
+  text-align: center;
+  color: #ffffff;
+}
+
+.kgz{
+  background: #0000b0;
+  text-align: center;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  h1{
+    margin: 0;
+  }
+}
